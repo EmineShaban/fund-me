@@ -13,19 +13,19 @@ contract FundMeTest is Test {
         DeployFundMe deployFundMe = new DeployFundMe();
         fundMe = deployFundMe.run();
     }
-    
-    function testDemo() public {
+
+    function testDemo() view public {
         assertEq(fundMe.MINIMUM_USD(), 5e18);
     }
 
-    function testOwnerIsMsgSender() public {
+    function testOwnerIsMsgSender() view public {
         console.log(fundMe.i_owner());
         console.log(address(this));
         console.log(msg.sender);
         assertEq(fundMe.i_owner(), msg.sender);
     }
 
-    function testPriceFeedVersionIsAccurate() public {
+    function testPriceFeedVersionIsAccurate() view public {
         uint256 version = fundMe.getVersion();
         assertEq(version, 4);
     }

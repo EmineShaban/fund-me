@@ -6,7 +6,7 @@ import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interf
 
 library PriceConverter {
     function getPrice(AggregatorV3Interface priceFeed) public view returns (uint256) {
-         (, int256 price,,,) = priceFeed.latestRoundData();
+        (, int256 price,,,) = priceFeed.latestRoundData();
         return uint256(price * 1e10);
     }
 
