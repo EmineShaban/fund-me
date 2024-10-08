@@ -3,8 +3,8 @@
 pragma solidity 0.8.27;
 
 import {Test, console} from "forge-std/Test.sol";
-import {FundMe} from "../src/FundMe.sol";
-import {DeployFundMe} from "../script/DeployFundMe.s.sol";
+import {FundMe} from "../../src/FundMe.sol";
+import {DeployFundMe} from "../../script/DeployFundMe.s.sol";
 
 contract FundMeTest is Test {
     FundMe fundMe;
@@ -95,7 +95,7 @@ contract FundMeTest is Test {
         assert(startingOwnerBalance + startingFundMeBalance == fundMe.getOwner().balance);
     }
 
-        function testWithDrawWithMultipleFundersCheaper() public funded {
+    function testWithDrawWithMultipleFundersCheaper() public funded {
         uint160 numberOfFunders = 10;
         uint160 startingFundersIndex = 1;
         for (uint160 i = startingFundersIndex; i < numberOfFunders; i++) {
